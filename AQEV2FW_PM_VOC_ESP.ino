@@ -64,7 +64,7 @@ boolean display_offline_mode_banner = false;
 RTC_DS3231 rtc;
 SdFat SD;
 
-#define MAX_SAMPLE_BUFFER_DEPTH  (96) // 8 minutes @ 5 second resolution
+#define MAX_SAMPLE_BUFFER_DEPTH  (84) // 7 minutes @ 5 second resolution
 #define CO2_EQUIVALENT_SAMPLE_BUFFER (0)
 #define TVOC_SAMPLE_BUFFER           (1)
 #define RESISTANCE_SAMPLE_BUFFER     (2)
@@ -311,7 +311,8 @@ uint8_t mode = MODE_OPERATIONAL;
 #define EEPROM_BACKUP_PRIVATE_KEY        (EEPROM_BACKUP_PM1P0_CAL_OFFSET + 4)
 #define EEPROM_BACKUP_PM1P0_CAL_OFFSET   (EEPROM_BACKUP_PM2P5_CAL_OFFSET + 4)
 #define EEPROM_BACKUP_PM2P5_CAL_OFFSET   (EEPROM_BACKUP_PM10P0_CAL_OFFSET + 4)
-#define EEPROM_BACKUP_PM10P0_CAL_OFFSET  (EEPROM_BACKUP_MAC_ADDRESS + 4)
+#define EEPROM_BACKUP_PM10P0_CAL_OFFSET  (EEPROM_BACKUP_MQTT_PASSWORD + 4)
+#define EEPROM_BACKUP_MQTT_PASSWORD      (EEPROM_BACKUP_MAC_ADDRESS + 6)
 #define EEPROM_BACKUP_MAC_ADDRESS        (EEPROM_BACKUP_CHECK + 2) // backup parameters are added here offset from the EEPROM_CRC_CHECKSUM
 #define EEPROM_BACKUP_CHECK              (EEPROM_CRC_CHECKSUM + 2) // 2-byte value with various bits set if backup has ever happened
 #define EEPROM_CRC_CHECKSUM              (E2END + 1 - EEPROM_CONFIG_MEMORY_SIZE) // reserve the last 1kB for config
